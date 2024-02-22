@@ -4,6 +4,7 @@ import Main from "./components/body/Main.tsx";
 import Test from "./components/body/Test.tsx";
 import Result from "./components/body/Result.tsx";
 import List from "./components/body/List.tsx";
+import Header from "./components/header/Header.tsx";
 
 function App() {
   return (
@@ -11,7 +12,7 @@ function App() {
       <div className="h-screen">
         <BrowserRouter>
           <div>
-            {/* <Header /> */}
+            <Header />
             <Routes>
               <Route path="/" element={<Main />}></Route>
               <Route path="/test" element={<Test />}></Route>

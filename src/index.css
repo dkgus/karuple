@@ -20,6 +20,12 @@
   font-style: normal;
   font-size: 1.3rem;
 }
+body {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
 
 @media (min-width: 768px) {
   /* mobile 이상 디바이스 */
@@ -37,6 +43,6 @@
   .h-screen {
     max-width: 100%;
     margin: 0 auto;
-    background-color: #4299e1; /* 파란색 */
+    background-color: #f3c038;
   }
 }

@@ -16,8 +16,6 @@ const Main = (): JSX.Element => {
     >
       <img
         src={img}
-        //src="https://daisyui.com/images/stock/photo-1559703248-dcaaec9fab78.jpg"
-        //https://lh3.google.com/u/0/d/1o8zsXyxurQsndrHytpDw6tpY2dHIFuyf=w2000-h3556-iv1
         alt="배경 이미지"
         style={{
           position: "absolute",
