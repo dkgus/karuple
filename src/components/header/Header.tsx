@@ -16,10 +16,14 @@ const Header = (props: Props): JSX.Element => {
   const [currentIndex, setCurrentIndex] = useState(index);
 
   useEffect(() => {
+    const barWidth = document.querySelector(".progress")?.clientWidth;
+    const length = barWidth / 12;
     const moveImage = () => {
       if (imageRef.current) {
         imageRef.current.style.transition = "transform 0.3s linear";
-        imageRef.current.style.transform = `translateX(${24 * currentIndex}px)`;
+        imageRef.current.style.transform = `translateX(${
+          (length - 1) * currentIndex
+        }px)`;
       }
     };
 
@@ -38,12 +42,13 @@ const Header = (props: Props): JSX.Element => {
     loading ? null : (
       <header>
         <progress
-          className="progress w-56"
+          className="progress w-full mx-auto"
+          style={{ maxWidth: "80%" }}
           value={index}
           max={maxIndex}
         ></progress>
         <img
-          className="kart_img realative left-3"
+          className="kart_img relative left-7"
           src={Cart}
           width={50}
           ref={imageRef}
