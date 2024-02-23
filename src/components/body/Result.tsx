@@ -1,7 +1,10 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
-
-const Result = (): JSX.Element => {
+interface Props {
+  setIndexChecker: (value: number) => void;
+}
+const Result = (props: Props): JSX.Element => {
+  const { setIndexChecker } = props;
   const navigate = useNavigate();
   return (
     <div className="content">
@@ -39,7 +42,14 @@ const Result = (): JSX.Element => {
         </div>
         <div>
           <button>전체 유형보기</button>
-          <button onClick={() => navigate("/")}>테스트 다시하기</button>
+          <button
+            onClick={() => {
+              setIndexChecker(0);
+              navigate("/");
+            }}
+          >
+            테스트 다시하기
+          </button>
           <button>카카오톡 공유</button>
           <button>내가 고른 답안 보기</button>
         </div>

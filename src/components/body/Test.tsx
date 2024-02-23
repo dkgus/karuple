@@ -20,7 +20,13 @@ interface AnswerSheet {
   result: string;
 }
 
-const Test = (): JSX.Element => {
+interface Props {
+  loading: boolean;
+  setLoading: (value: boolean) => void;
+  setIndexChecker: (value: number) => void;
+}
+const Test = (props: Props): JSX.Element => {
+  const { loading, setLoading, setIndexChecker } = props;
   const style = {
     width: "80%",
     fontSize: "20px",
@@ -29,11 +35,12 @@ const Test = (): JSX.Element => {
   const navigate = useNavigate();
 
   const [idx, setIndex] = useState<number>(0);
-  const [loading, setLoading] = useState<boolean>(false);
   const [answerSheet, setAnswerSheet] = useState<AnswerSheet[]>([]);
 
   useEffect(() => {
     const initializeAnswerSheet = () => {
+      setLoading(false);
+
       const arr: AnswerSheet[] = [];
       const types: string[] = ["first", "second", "third", "fourth"];
       for (let i = 0; i < 4; i++) {
@@ -92,9 +99,10 @@ const Test = (): JSX.Element => {
               key={index}
               className={style.class + " bg-base-100/50 active:bg-base-100"}
               style={style}
-              onClick={() =>
-                handleAnswerClick(answer.point, currentQuestion.type)
-              }
+              onClick={() => {
+                handleAnswerClick(answer.point, currentQuestion.type);
+                setIndexChecker(currentQuestion.id);
+              }}
             >
               {answer.text}
             </div>

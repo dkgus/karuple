@@ -90,6 +90,96 @@ const data = [
       },
     ],
   },
+  {
+    id: 7,
+    question: "아깝게 랭킹전에서 진 상황에서 당신은 어떻게 할 것인가요?  ",
+    type: "third",
+    answers: [
+      {
+        text: "답변1",
+        point: 1,
+      },
+      {
+        text: "답변2",
+        point: -1,
+      },
+    ],
+  },
+  {
+    id: 8,
+    question: "아깝게 랭킹전에서 진 상황에서 당신은 어떻게 할 것인가요?  ",
+    type: "third",
+    answers: [
+      {
+        text: "답변1",
+        point: 1,
+      },
+      {
+        text: "답변2",
+        point: -1,
+      },
+    ],
+  },
+  {
+    id: 9,
+    question: "아깝게 랭킹전에서 진 상황에서 당신은 어떻게 할 것인가요?  ",
+    type: "third",
+    answers: [
+      {
+        text: "답변1",
+        point: 1,
+      },
+      {
+        text: "답변2",
+        point: -1,
+      },
+    ],
+  },
+  {
+    id: 10,
+    question: "아깝게 랭킹전에서 진 상황에서 당신은 어떻게 할 것인가요?  ",
+    type: "fourth",
+    answers: [
+      {
+        text: "답변1",
+        point: 1,
+      },
+      {
+        text: "답변2",
+        point: -1,
+      },
+    ],
+  },
+  {
+    id: 11,
+    question: "아깝게 랭킹전에서 진 상황에서 당신은 어떻게 할 것인가요?  ",
+    type: "fourth",
+    answers: [
+      {
+        text: "답변1",
+        point: 1,
+      },
+      {
+        text: "답변2",
+        point: -1,
+      },
+    ],
+  },
+  {
+    id: 12,
+    question: "아깝게 랭킹전에서 진 상황에서 당신은 어떻게 할 것인가요?  ",
+    type: "fourth",
+    answers: [
+      {
+        text: "답변1",
+        point: 1,
+      },
+      {
+        text: "답변2",
+        point: -1,
+      },
+    ],
+  },
 ];
 
 export default data;
