@@ -56,7 +56,8 @@ const Header = (props: Props): JSX.Element => {
       </header>
     )
   ) : location.pathname.includes("/result") ? (
-    <header>카러플 MBTI</header>
+    // <header>카러플 MBTI</header>
+    <></>
   ) : (
     <></>
   );
