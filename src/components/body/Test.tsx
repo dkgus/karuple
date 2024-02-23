@@ -56,6 +56,30 @@ const Test = (props: Props): JSX.Element => {
     initializeAnswerSheet();
   }, []);
 
+  useEffect(() => {
+    if (loading) {
+      calFunc();
+    }
+  }, [loading, answerSheet]);
+
+  const calFunc = async () => {
+    const arr = [];
+    for (let i = 0; i < answerSheet.length; i++) {
+      const type = ["E-I", "N-S", "F-T", "J-P"];
+      const spliceWord = type.map((i) => i.split("-"));
+      if (answerSheet[i].score > 0) {
+        arr.push({
+          result: spliceWord[i][0],
+        });
+      } else {
+        arr.push({
+          result: spliceWord[i][1],
+        });
+      }
+      continue;
+    }
+  };
+
   const handleAnswerClick = (point: number, type: string) => {
     setAnswerSheet((prevSheet) =>
       prevSheet.map((sheet) =>
@@ -68,7 +92,7 @@ const Test = (props: Props): JSX.Element => {
     } else {
       setLoading(true);
       setTimeout(() => {
-        navigate("/result/1");
+        //navigate("/result/1");
       }, 3000);
     }
   };
