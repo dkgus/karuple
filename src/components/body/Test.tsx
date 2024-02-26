@@ -36,6 +36,7 @@ const Test = (props: Props): JSX.Element => {
 
   const [idx, setIndex] = useState<number>(0);
   const [answerSheet, setAnswerSheet] = useState<AnswerSheet[]>([]);
+  const [result, setResult] = useState<string>("");
 
   useEffect(() => {
     const initializeAnswerSheet = () => {
@@ -56,28 +57,23 @@ const Test = (props: Props): JSX.Element => {
     initializeAnswerSheet();
   }, []);
 
-  useEffect(() => {
-    if (loading) {
-      calFunc();
-    }
-  }, [loading, answerSheet]);
+  const calFunc = () => {
+    let arr: string[] = [];
+    let answer: string = "";
 
-  const calFunc = async () => {
-    const arr = [];
     for (let i = 0; i < answerSheet.length; i++) {
       const type = ["E-I", "N-S", "F-T", "J-P"];
       const spliceWord = type.map((i) => i.split("-"));
       if (answerSheet[i].score > 0) {
-        arr.push({
-          result: spliceWord[i][0],
-        });
+        arr.push(spliceWord[i][0]);
       } else {
-        arr.push({
-          result: spliceWord[i][1],
-        });
+        arr.push(spliceWord[i][1]);
       }
       continue;
     }
+    answer = arr.join("");
+    setResult(answer);
+    return answer;
   };
 
   const handleAnswerClick = (point: number, type: string) => {
@@ -91,9 +87,11 @@ const Test = (props: Props): JSX.Element => {
       setIndex((prevIdx) => prevIdx + 1);
     } else {
       setLoading(true);
+      const data = calFunc();
+
       setTimeout(() => {
-        //navigate("/result/1");
-      }, 3000);
+        navigate(`/result/${data}`);
+      }, 1000);
     }
   };
 
