@@ -1,6 +1,7 @@
 import React from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import Dao from "./img/dao.jpg";
+import Daisy from "./img/daisy.jpg";
 import "./style.css";
 
 interface Props {
@@ -10,6 +11,28 @@ interface Props {
 const Result = (props: Props): JSX.Element => {
   const { setIndexChecker } = props;
   const navigate = useNavigate();
+  const { id } = useParams();
+  console.log("id ", id);
+
+  const matchType = {
+    ESFP: "다오",
+    INTP: "디지니",
+    ISFP: "배찌",
+    ISTJ: "에띠",
+    INFP: "마리드",
+    ENTJ: "슈가",
+    ESTJ: "미즈 로두마니",
+    ISTP: "모스",
+    ESTP: "일영",
+    ENFP: "첸첸",
+    ESFJ: "네오",
+    INFJ: "나이아드",
+    ISFJ: "르네",
+    INTJ: "헬리오스",
+    ENTP: "토르",
+    ENFJ: "데이지",
+  };
+
   const btnClass = "text-sm bg-base-100/50 p-2 rounded ";
 
   return (
@@ -17,7 +40,7 @@ const Result = (props: Props): JSX.Element => {
       style={{
         display: "flex",
         flexDirection: "column",
-        height: "100vh",
+        height: "100dvh",
         overflow: "hidden",
         position: "relative",
       }}
@@ -29,7 +52,7 @@ const Result = (props: Props): JSX.Element => {
         <img src={Dao} className="mask mask-circle mx-auto h-full " alt="Dao" />
       </div>
       <div className="text_container flex-1">
-        <div>다오</div>
+        <div>{matchType[id]}</div>
         <div
           className="bg-base-100/50 mx-10 rounded custom_scroll text-base"
           style={{

@@ -12,7 +12,7 @@ function App() {
 
   return (
     <div className="App">
-      <div className="h-screen">
+      <div className="h-dvh">
         <BrowserRouter>
           <div>
             <Header index={indexChecker} loading={loading} />

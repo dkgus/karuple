@@ -9,7 +9,7 @@ const Main = (): JSX.Element => {
     <div
       className="text-3xl text-center text-white pt-10 relative flex flex-col justify-center items-center"
       style={{
-        height: "100vh",
+        height: "100dvh",
         width: "100%",
         overflow: "hidden",
       }}

@@ -31,7 +31,7 @@ body {
 @media (min-width: 768px) {
   /* mobile 이상 디바이스 */
 
-  .h-screen {
+  .h-dvh {
     max-width: 30%;
     margin: 0 auto;
     background-color: #f3c038;
@@ -41,7 +41,7 @@ body {
 @media (max-width: 1155px) {
   /*  mobile+pad 버전 */
 
-  .h-screen {
+  .h-dvh {
     max-width: 100%;
     margin: 0 auto;
     background-color: #f3c038;
