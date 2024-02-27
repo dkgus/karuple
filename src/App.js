@@ -4,6 +4,7 @@ import Main from "./components/body/Main.tsx";
 import Test from "./components/body/Test.tsx";
 import Result from "./components/body/Result.tsx";
 import List from "./components/body/List.tsx";
+import MyResult from "./components/body/MyResult.tsx";
 import Header from "./components/header/Header.tsx";
 import { useState } from "react";
 function App() {
@@ -33,6 +34,7 @@ function App() {
                 element={<Result setIndexChecker={setIndexChecker} />}
               ></Route>
               <Route path="/list" element={<List />}></Route>
+              <Route path="/my_result" element={<MyResult />}></Route>
             </Routes>
           </div>
         </BrowserRouter>

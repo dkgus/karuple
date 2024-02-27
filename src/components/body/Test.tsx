@@ -18,6 +18,7 @@ interface AnswerSheet {
   type: string;
   score: number;
   result: string;
+  order: number[] | number;
 }
 
 interface Props {
@@ -37,6 +38,7 @@ const Test = (props: Props): JSX.Element => {
   const [idx, setIndex] = useState<number>(0);
   const [answerSheet, setAnswerSheet] = useState<AnswerSheet[]>([]);
   const [result, setResult] = useState<string>("");
+  const [record, setRecord] = useState<number[]>([]);
 
   useEffect(() => {
     const initializeAnswerSheet = () => {
@@ -49,13 +51,21 @@ const Test = (props: Props): JSX.Element => {
           type: types[i],
           score: 0,
           result: "",
+          order: [],
         });
       }
+
       setAnswerSheet(arr);
     };
 
     initializeAnswerSheet();
   }, []);
+
+  useEffect(() => {
+    if (record.length >= 12) {
+      localStorage.setItem("record", JSON.stringify(record));
+    }
+  }, [record]);
 
   const calFunc = () => {
     let arr: string[] = [];
@@ -78,9 +88,14 @@ const Test = (props: Props): JSX.Element => {
 
   const handleAnswerClick = (point: number, type: string) => {
     setAnswerSheet((prevSheet) =>
-      prevSheet.map((sheet) =>
-        sheet.type === type ? { ...sheet, score: sheet.score + point } : sheet
-      )
+      prevSheet.map((sheet) => {
+        return sheet.type === type
+          ? {
+              ...sheet,
+              score: sheet.score + point,
+            }
+          : sheet;
+      })
     );
 
     if (idx + 1 !== data.length) {
@@ -122,8 +137,9 @@ const Test = (props: Props): JSX.Element => {
               className={style.class + " bg-base-100/50 active:bg-base-100"}
               style={style}
               onClick={() => {
-                handleAnswerClick(answer.point, currentQuestion.type);
+                setRecord([...record, index]);
                 setIndexChecker(currentQuestion.id);
+                handleAnswerClick(answer.point, currentQuestion.type);
               }}
             >
               {answer.text}

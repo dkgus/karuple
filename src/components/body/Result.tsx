@@ -40,7 +40,7 @@ const Result = (props: Props): JSX.Element => {
     INFP: {
       name: "마리드",
       image: Marid,
-      tag: ["도도", "낭만", "경쟁심없음", "사랑"],
+      tag: ["도도", "낭만", "사랑"],
     },
     ENTJ: { name: "슈가", image: Sugar, tag: ["열정", "승리"] },
     ESTJ: {
@@ -116,7 +116,7 @@ const Result = (props: Props): JSX.Element => {
               key={item}
               style={{ backgroundColor: colorLine[idx] }}
             >
-              {item}
+              # {item}
             </div>
           ))}
 
@@ -151,7 +151,12 @@ const Result = (props: Props): JSX.Element => {
           <span className={btnClass + "pb-1"}>카카오톡 공유</span>
         </div>
         <div>
-          <span className={btnClass + "mr-3"}>내가 선택한 답안보기</span>
+          <span
+            className={btnClass + "mr-3"}
+            onClick={() => navigate("/my_result")}
+          >
+            내가 선택한 답안보기
+          </span>
           <span className={btnClass}>전체 유형보기</span>
         </div>
       </div>
