@@ -8,7 +8,27 @@ const List = (props: Props): JSX.Element => {
   const navigate = useNavigate();
   const { setAccessType } = props;
   const [type, setType] = useState<string>("");
+  const [filterData, setFilterData] =
+    useState<
+      { key: string; value: { name: string; image: string; tag: string[] } }[]
+    >();
+  const [originData, setOriginData] =
+    useState<
+      { key: string; value: { name: string; image: string; tag: string[] } }[]
+    >();
   const btnClass = "text-sm bg-base-100/50 p-2 rounded ";
+
+  useEffect(() => {
+    const entriesWithKeys =
+      matchType &&
+      Object.entries(matchType).map(([key, value]) => ({
+        key,
+        value,
+      }));
+
+    setOriginData(entriesWithKeys);
+    setFilterData(entriesWithKeys);
+  }, []);
 
   useEffect(() => {
     const id = localStorage.getItem("type");
@@ -18,12 +38,34 @@ const List = (props: Props): JSX.Element => {
       setType(id);
     }
   }, []);
+
+  console.log("filterData", filterData);
   return (
     <div>
       <div>전체 유형</div>
       <div className="search_zone px-3 py-1">
         <label className="input input-bordered flex items-center gap-2 h-7">
-          <input type="text" className="grow" placeholder="ex) 다오" />
+          <input
+            type="text"
+            className="grow"
+            placeholder="ex) 다오 or Esfp"
+            onChange={(e) => {
+              const inputValue = e.target.value
+                .trim()
+                .toLowerCase()
+                .toUpperCase();
+              if (!inputValue) {
+                setFilterData(originData);
+              } else {
+                const filtered = originData.filter(
+                  (item) =>
+                    item.key.includes(inputValue) ||
+                    item.value.name.includes(inputValue)
+                );
+                setFilterData(filtered);
+              }
+            }}
+          />
           <svg
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 16 16"
@@ -44,14 +86,16 @@ const List = (props: Props): JSX.Element => {
         style={{ maxHeight: "76dvh", overflowY: "scroll" }}
       >
         {Object.keys(matchType).length > 0 &&
-          Object.keys(matchType).map((item) => (
+          filterData &&
+          filterData.map((item) => (
             <>
+              {console.log("item", item)}
               <div className="card card-side bg-base-100  m-3">
                 <figure>
                   <img
-                    src={matchType[item].image}
+                    src={item.value.image}
                     style={{
-                      transform: "scale(1.4)",
+                      transform: "scale(1.5)",
                       transition: "transform 0.3s",
                       maxHeight: "20dvh",
                     }}
@@ -59,16 +103,16 @@ const List = (props: Props): JSX.Element => {
                   />
                 </figure>
                 <div className="card-body p-0 ">
-                  <h2 className="text-md ">{matchType[item].name}</h2>
+                  <h2 className="text-md ">{item.value.name}</h2>
                   <p className="text-sm">
                     관련 MBTI:{" "}
                     <span className="text-sm bg-red-300 p-1 rounded">
-                      {friendMatchData[matchType[item].name]?.type}
+                      {item.key}
                     </span>
                     <br />
                     절친 MBTI:YYYY
                     <br />
-                    {matchType[item].tag.map((item) => (
+                    {item.value.tag.map((item) => (
                       <span className="text-sm bg-violet-100 p-1 rounded mr-1">
                         {item}
                       </span>
@@ -77,7 +121,7 @@ const List = (props: Props): JSX.Element => {
                   <div
                     className="text-sm "
                     onClick={() => {
-                      navigate(`/result/${item}`);
+                      navigate(`/result/${item.key}`);
                       setAccessType("A");
                     }}
                   >
