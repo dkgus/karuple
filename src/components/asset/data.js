@@ -6,10 +6,12 @@ const data = [
     type: "first",
     answers: [
       {
+        idx: 0,
         text: "답변1",
         point: 1,
       },
       {
+        idx: 1,
         text: "답변2",
         point: -1,
       },
@@ -21,10 +23,12 @@ const data = [
     type: "first",
     answers: [
       {
+        idx: 0,
         text: "답변1",
         point: 1,
       },
       {
+        idx: 1,
         text: "답변2",
         point: -1,
       },
@@ -36,10 +40,12 @@ const data = [
     type: "first",
     answers: [
       {
+        idx: 0,
         text: "답변1",
         point: 1,
       },
       {
+        idx: 1,
         text: "답변2",
         point: -1,
       },
@@ -51,10 +57,12 @@ const data = [
     type: "second",
     answers: [
       {
+        idx: 0,
         text: "답변1",
         point: 1,
       },
       {
+        idx: 1,
         text: "답변2",
         point: -1,
       },
@@ -66,10 +74,12 @@ const data = [
     type: "second",
     answers: [
       {
+        idx: 0,
         text: "답변1",
         point: 1,
       },
       {
+        idx: 1,
         text: "답변2",
         point: -1,
       },
@@ -81,10 +91,12 @@ const data = [
     type: "second",
     answers: [
       {
+        idx: 0,
         text: "답변1",
         point: 1,
       },
       {
+        idx: 1,
         text: "답변2",
         point: -1,
       },
@@ -96,10 +108,12 @@ const data = [
     type: "third",
     answers: [
       {
+        idx: 0,
         text: "답변1",
         point: 1,
       },
       {
+        idx: 1,
         text: "답변2",
         point: -1,
       },
@@ -111,10 +125,12 @@ const data = [
     type: "third",
     answers: [
       {
+        idx: 0,
         text: "답변1",
         point: 1,
       },
       {
+        idx: 1,
         text: "답변2",
         point: -1,
       },
@@ -126,10 +142,12 @@ const data = [
     type: "third",
     answers: [
       {
+        idx: 0,
         text: "답변1",
         point: 1,
       },
       {
+        idx: 1,
         text: "답변2",
         point: -1,
       },
@@ -141,10 +159,12 @@ const data = [
     type: "fourth",
     answers: [
       {
+        idx: 0,
         text: "답변1",
         point: 1,
       },
       {
+        idx: 1,
         text: "답변2",
         point: -1,
       },
@@ -156,10 +176,12 @@ const data = [
     type: "fourth",
     answers: [
       {
+        idx: 0,
         text: "답변1",
         point: 1,
       },
       {
+        idx: 1,
         text: "답변2",
         point: -1,
       },
@@ -171,10 +193,12 @@ const data = [
     type: "fourth",
     answers: [
       {
+        idx: 0,
         text: "답변1",
         point: 1,
       },
       {
+        idx: 1,
         text: "답변2",
         point: -1,
       },
