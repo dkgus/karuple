@@ -7,6 +7,7 @@ interface Props {
 const List = (props: Props): JSX.Element => {
   const navigate = useNavigate();
   const { setAccessType } = props;
+  const btnClass = "text-sm bg-base-100/50 p-2 rounded ";
 
   return (
     <div>
@@ -77,6 +78,14 @@ const List = (props: Props): JSX.Element => {
               </div>
             </>
           ))}
+      </div>
+      <div className="btn_box w-full pt-3">
+        <span className={btnClass} onClick={() => navigate(-1)}>
+          뒤로가기
+        </span>
+        <span className={btnClass + "ml-1"} onClick={() => navigate("/")}>
+          테스트 다시하기
+        </span>
       </div>
     </div>
   );

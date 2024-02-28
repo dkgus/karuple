@@ -64,7 +64,9 @@ const MyResult = (): JSX.Element => {
         <button className={commonStyle} onClick={() => navigate(-1)}>
           내 유형으로 돌아가기
         </button>
-        <button className={commonStyle}>전체 유형보기</button>
+        <button className={commonStyle} onClick={() => navigate("/list")}>
+          전체 유형보기
+        </button>
       </div>
     </div>
   );
