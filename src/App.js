@@ -34,7 +34,7 @@ function App() {
                 element={<Result setIndexChecker={setIndexChecker} />}
               ></Route>
               <Route path="/list" element={<List />}></Route>
-              <Route path="/my_result" element={<MyResult />}></Route>
+              <Route path="/my_result/:id" element={<MyResult />}></Route>
             </Routes>
           </div>
         </BrowserRouter>
