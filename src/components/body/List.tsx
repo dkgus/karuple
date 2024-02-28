@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { matchType, friendMatchData } from "./matchType";
+import { matchType, friendMatchData, character } from "./matchType";
 import { useNavigate } from "react-router-dom";
 interface Props {
   setAccessType: (value: string) => void;
@@ -8,6 +8,7 @@ const List = (props: Props): JSX.Element => {
   const navigate = useNavigate();
   const { setAccessType } = props;
   const [type, setType] = useState<string>("");
+
   const [filterData, setFilterData] =
     useState<
       { key: string; value: { name: string; image: string; tag: string[] } }[]
@@ -39,16 +40,15 @@ const List = (props: Props): JSX.Element => {
     }
   }, []);
 
-  console.log("filterData", filterData);
   return (
     <div>
       <div>전체 유형</div>
-      <div className="search_zone px-3 py-1">
+      <div className="search_zone px-4 py-1">
         <label className="input input-bordered flex items-center gap-2 h-7">
           <input
             type="text"
             className="grow"
-            placeholder="ex) 다오 or Esfp"
+            placeholder="ex) 다오 or ESFP"
             onChange={(e) => {
               const inputValue = e.target.value
                 .trim()
@@ -110,13 +110,18 @@ const List = (props: Props): JSX.Element => {
                       {item.key}
                     </span>
                     <br />
-                    절친 MBTI:YYYY
+                    절친 MBTI: YYYY
                     <br />
-                    {item.value.tag.map((item) => (
-                      <span className="text-sm bg-violet-100 p-1 rounded mr-1">
-                        {item}
-                      </span>
-                    ))}
+                    {item.value.tag.map((item) => {
+                      return (
+                        <span
+                          className="text-sm bg-violet-100 p-1 rounded mr-1"
+                          style={{ backgroundColor: `${character[item]}` }}
+                        >
+                          {item}
+                        </span>
+                      );
+                    })}
                   </p>
                   <div
                     className="text-sm "

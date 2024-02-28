@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { matchType } from "./matchType";
+import { colorGenerator } from "./randomColor";
 
 import "./style.css";
 
@@ -32,11 +33,8 @@ const Result = (props: Props): JSX.Element => {
       "#E493B3",
       "#EEA5A6",
     ];
+    const newBadgeColors = colorGenerator(matchType[id].tag.length, colors);
 
-    const newBadgeColors = Array.from(
-      { length: matchType[id].tag.length },
-      () => colors[Math.floor(Math.random() * colors.length)]
-    );
     setColorLine(newBadgeColors);
   }, []);
 
