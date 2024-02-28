@@ -12,6 +12,7 @@ interface Question {
   question: string;
   type: string;
   answers: Answer[];
+  src: string;
 }
 
 interface AnswerSheet {
@@ -113,7 +114,7 @@ const Test = (props: Props): JSX.Element => {
   };
 
   const currentQuestion: Question = data[idx];
-
+  console.log("data[idx]", data[idx]);
   return (
     <div>
       {loading ? (
@@ -131,6 +132,9 @@ const Test = (props: Props): JSX.Element => {
       ) : (
         <>
           <div className={style.class + " bg-base-100"} style={style}>
+            <div>
+              <img src={currentQuestion.src} className="rounded-t-lg" />
+            </div>
             Q{currentQuestion.id}. {currentQuestion.question}
           </div>
           {currentQuestion.answers.map((answer, index) => (

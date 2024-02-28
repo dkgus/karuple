@@ -15,6 +15,19 @@ import Hellios from "./img/hellios.jpg";
 import Toreu from "./img/toreu.jpg";
 import Daisy from "./img/daisy.jpg";
 
+import China from "./qImg/china.jpg";
+import FactoryOut from "./qImg/factory_outside.jpg";
+import Factory from "./qImg/factory.jpg";
+import Gangnam from "./qImg/Gangnam.jpg";
+import Hawaii from "./qImg/hawaii.jpg";
+import Istanbul from "./qImg/istanbul.jpg";
+import London from "./qImg/london.jpg";
+import NewYork from "./qImg/newyork.jpg";
+import Singapore from "./qImg/singapore.jpg";
+import Village from "./qImg/village.jpg";
+import Japan from "./qImg/WKC_Japan.jpg";
+import Tomb from "./qImg/World_Tomb.jpg";
+
 export {
   Dao,
   Baejji,
@@ -32,4 +45,16 @@ export {
   Hellios,
   Toreu,
   Daisy,
+  China,
+  FactoryOut,
+  Factory,
+  Gangnam,
+  Hawaii,
+  Istanbul,
+  London,
+  NewYork,
+  Singapore,
+  Village,
+  Japan,
+  Tomb,
 };
