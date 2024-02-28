@@ -10,6 +10,7 @@ import { useState } from "react";
 function App() {
   const [indexChecker, setIndexChecker] = useState(0);
   const [loading, setLoading] = useState(false);
+  const [accessType, setAccessType] = useState("");
 
   return (
     <div className="App">
@@ -26,14 +27,23 @@ function App() {
                     loading={loading}
                     setLoading={setLoading}
                     setIndexChecker={setIndexChecker}
+                    setAccessType={setAccessType}
                   />
                 }
               ></Route>
               <Route
                 path="/result/:id"
-                element={<Result setIndexChecker={setIndexChecker} />}
+                element={
+                  <Result
+                    accessType={accessType}
+                    setIndexChecker={setIndexChecker}
+                  />
+                }
               ></Route>
-              <Route path="/list" element={<List />}></Route>
+              <Route
+                path="/list"
+                element={<List setAccessType={setAccessType} />}
+              ></Route>
               <Route path="/my_result/:id" element={<MyResult />}></Route>
             </Routes>
           </div>

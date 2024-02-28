@@ -1,7 +1,13 @@
 import React from "react";
 import { matchType, friendMatchData } from "./matchType";
+import { useNavigate } from "react-router-dom";
+interface Props {
+  setAccessType: (value: string) => void;
+}
+const List = (props: Props): JSX.Element => {
+  const navigate = useNavigate();
+  const { setAccessType } = props;
 
-const List = (): JSX.Element => {
   return (
     <div>
       <div>전체 유형</div>
@@ -53,12 +59,20 @@ const List = (): JSX.Element => {
                     절친 MBTI:YYYY
                     <br />
                     {matchType[item].tag.map((item) => (
-                      <span className="text-sm bg-red-300 p-1 rounded mr-1">
+                      <span className="text-sm bg-violet-100 p-1 rounded mr-1">
                         {item}
                       </span>
                     ))}
                   </p>
-                  <div className="text-sm">자세히보기</div>
+                  <div
+                    className="text-sm "
+                    onClick={() => {
+                      navigate(`/result/${item}`);
+                      setAccessType("A");
+                    }}
+                  >
+                    자세히보기
+                  </div>
                 </div>
               </div>
             </>

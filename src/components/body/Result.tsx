@@ -5,13 +5,15 @@ import { matchType } from "./matchType";
 import "./style.css";
 
 interface Props {
+  accessType: string;
   setIndexChecker: (value: number) => void;
 }
 
 const Result = (props: Props): JSX.Element => {
-  const { setIndexChecker } = props;
-  const navigate = useNavigate();
+  const { accessType, setIndexChecker } = props;
   const { id } = useParams();
+  const navigate = useNavigate();
+
   const [colorLine, setColorLine] = useState<string[]>([]);
 
   const btnClass = "text-sm bg-base-100/50 p-2 rounded ";
@@ -92,31 +94,39 @@ const Result = (props: Props): JSX.Element => {
           </div>
         </div>
       </div>
-      <div className="btn_box absolute bottom-5 w-full">
-        <div>
-          <span
-            className={btnClass + "mr-3 pb-1"}
-            onClick={() => {
-              setIndexChecker(0);
-              navigate("/");
-            }}
-          >
-            테스트 다시하기
-          </span>
-          <span className={btnClass + "pb-1"}>카카오톡 공유</span>
+      {accessType === "P" ? (
+        <div className="btn_box absolute bottom-5 w-full">
+          <div>
+            <span
+              className={btnClass + "mr-3 pb-1"}
+              onClick={() => {
+                setIndexChecker(0);
+                navigate("/");
+              }}
+            >
+              테스트 다시하기
+            </span>
+            <span className={btnClass + "pb-1"}>카카오톡 공유</span>
+          </div>
+          <div>
+            <span
+              className={btnClass + "mr-3"}
+              onClick={() => navigate(`/my_result/${id}`)}
+            >
+              내가 선택한 답안보기
+            </span>
+            <span className={btnClass} onClick={() => navigate("/list")}>
+              전체 유형보기
+            </span>
+          </div>
         </div>
-        <div>
-          <span
-            className={btnClass + "mr-3"}
-            onClick={() => navigate(`/my_result/${id}`)}
-          >
-            내가 선택한 답안보기
-          </span>
+      ) : (
+        <div className="btn_box absolute bottom-5 w-full">
           <span className={btnClass} onClick={() => navigate("/list")}>
             전체 유형보기
           </span>
         </div>
-      </div>
+      )}
     </div>
   );
 };

@@ -25,9 +25,10 @@ interface Props {
   loading: boolean;
   setLoading: (value: boolean) => void;
   setIndexChecker: (value: number) => void;
+  setAccessType: (value: string) => void;
 }
 const Test = (props: Props): JSX.Element => {
-  const { loading, setLoading, setIndexChecker } = props;
+  const { loading, setLoading, setIndexChecker, setAccessType } = props;
   const style = {
     width: "80%",
     fontSize: "20px",
@@ -83,6 +84,7 @@ const Test = (props: Props): JSX.Element => {
     }
     answer = arr.join("");
     setResult(answer);
+    setAccessType("P");
     return answer;
   };
 
