@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import data from "../asset/data";
 import Home from "./img/home.png";
-import matchType from "./matchType";
+import { matchType } from "./matchType";
 
 const MyResult = (): JSX.Element => {
   const { id } = useParams();

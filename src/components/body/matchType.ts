@@ -47,4 +47,23 @@ const matchType: Record<
   ENFJ: { name: "데이지", image: Daisy, tag: ["친절", "관리자", "열정"] },
 };
 
-export default matchType;
+const friendMatchData: Record<string, { type: string; bestFriend: string }> = {
+  다오: { type: "ESFP", bestFriend: "" },
+  디지니: { type: "INTP", bestFriend: "" },
+  배찌: { type: "ISFP", bestFriend: "" },
+  에띠: { type: "ISTJ", bestFriend: "" },
+  마리드: { type: "INFP", bestFriend: "" },
+  슈가: { type: "ENTJ", bestFriend: "" },
+  "미즈 로두마니": { type: "ESTJ", bestFriend: "" },
+  일영: { type: "ESTP", bestFriend: "" },
+  모스: { type: "ISTP", bestFriend: "" },
+  첸첸: { type: "ENFP", bestFriend: "" },
+  네오: { type: "ESFJ", bestFriend: "" },
+  나이아드: { type: "INFJ", bestFriend: "" },
+  르네: { type: "ISFJ", bestFriend: "" },
+  헬리오스: { type: "INTJ", bestFriend: "" },
+  토르: { type: "ENTP", bestFriend: "" },
+  데이지: { type: "ENFJ", bestFriend: "" },
+};
+
+export { matchType, friendMatchData };

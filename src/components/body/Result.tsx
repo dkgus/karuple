@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
-import matchType from "./matchType";
+import { matchType } from "./matchType";
 
 import "./style.css";
 
@@ -112,7 +112,9 @@ const Result = (props: Props): JSX.Element => {
           >
             내가 선택한 답안보기
           </span>
-          <span className={btnClass}>전체 유형보기</span>
+          <span className={btnClass} onClick={() => navigate("/list")}>
+            전체 유형보기
+          </span>
         </div>
       </div>
     </div>
