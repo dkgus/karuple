@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { matchType, friendMatchData } from "./matchType";
 import { useNavigate } from "react-router-dom";
 interface Props {
@@ -7,8 +7,17 @@ interface Props {
 const List = (props: Props): JSX.Element => {
   const navigate = useNavigate();
   const { setAccessType } = props;
+  const [type, setType] = useState<string>("");
   const btnClass = "text-sm bg-base-100/50 p-2 rounded ";
 
+  useEffect(() => {
+    const id = localStorage.getItem("type");
+    if (!id) {
+      return;
+    } else {
+      setType(id);
+    }
+  }, []);
   return (
     <div>
       <div>전체 유형</div>
@@ -80,8 +89,8 @@ const List = (props: Props): JSX.Element => {
           ))}
       </div>
       <div className="btn_box w-full pt-3">
-        <span className={btnClass} onClick={() => navigate(-1)}>
-          뒤로가기
+        <span className={btnClass} onClick={() => navigate(`/result/${type}`)}>
+          내 유형으로 돌아가기
         </span>
         <span className={btnClass + "ml-1"} onClick={() => navigate("/")}>
           테스트 다시하기

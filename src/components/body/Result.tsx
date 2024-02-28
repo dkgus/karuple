@@ -19,6 +19,10 @@ const Result = (props: Props): JSX.Element => {
   const btnClass = "text-sm bg-base-100/50 p-2 rounded ";
 
   useEffect(() => {
+    localStorage.setItem("type", id);
+  }, []);
+
+  useEffect(() => {
     const colors: string[] = [
       "#FFF7F1",
       "#FFE4C9",
