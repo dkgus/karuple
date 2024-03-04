@@ -12,8 +12,8 @@ const MyResult = (): JSX.Element => {
 
   useEffect(() => {
     const answer = JSON.parse(localStorage.getItem("record") || "[]");
-    const ownType = JSON.parse(localStorage.getItem("ownType") || "");
-    if (!answer) {
+    const ownType = localStorage.getItem("ownType") || "";
+    if (!answer || !ownType) {
       return;
     } else {
       setRecord(answer);

@@ -139,7 +139,15 @@ const Test = (props: Props): JSX.Element => {
             <div>
               <ProgressiveImage src={currentQuestion.src} placeholder={""}>
                 {(src: string) => (
-                  <img src={src} srcSet={srcSet} className="rounded-t-lg"></img>
+                  <picture>
+                    <source srcSet={srcSet} media="(max-width: 768px)" />
+                    <img
+                      alt="img"
+                      src={src}
+                      srcSet={srcSet}
+                      className="rounded-t-lg"
+                    ></img>
+                  </picture>
                 )}
               </ProgressiveImage>
             </div>
