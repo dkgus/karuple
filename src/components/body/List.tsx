@@ -32,7 +32,7 @@ const List = (props: Props): JSX.Element => {
   }, []);
 
   useEffect(() => {
-    const id = localStorage.getItem("type");
+    const id = localStorage.getItem("ownType");
     if (!id) {
       return;
     } else {
@@ -89,15 +89,14 @@ const List = (props: Props): JSX.Element => {
           filterData &&
           filterData.map((item) => (
             <>
-              {console.log("item", item)}
-              <div className="card card-side bg-base-100  m-3">
-                <figure>
+              <div className="card card-side bg-base-100 m-3 flex">
+                <figure style={{ maxWidth: "50%" }}>
                   <img
                     src={item.value.image}
                     style={{
                       transform: "scale(1.5)",
                       transition: "transform 0.3s",
-                      maxHeight: "20dvh",
+                      //maxHeight: "20dvh",
                     }}
                     alt="img"
                   />

@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import data from "../asset/data";
 import { useNavigate } from "react-router-dom";
-
+import ProgressiveImage from "react-progressive-graceful-image";
 interface Answer {
   text: string;
   point: number;
@@ -106,7 +106,7 @@ const Test = (props: Props): JSX.Element => {
     } else {
       setLoading(true);
       const data = calFunc();
-
+      localStorage.setItem("ownType", data);
       setTimeout(() => {
         navigate(`/result/${data}`);
       }, 1000);
@@ -114,7 +114,11 @@ const Test = (props: Props): JSX.Element => {
   };
 
   const currentQuestion: Question = data[idx];
-  console.log("data[idx]", data[idx]);
+  {
+    console.log("currentQuestion.src", currentQuestion.src);
+  }
+  const srcSet = `${currentQuestion.src} 1000w, ${currentQuestion.src} 2000w`;
+
   return (
     <div>
       {loading ? (
@@ -133,7 +137,11 @@ const Test = (props: Props): JSX.Element => {
         <>
           <div className={style.class + " bg-base-100"} style={style}>
             <div>
-              <img src={currentQuestion.src} className="rounded-t-lg" />
+              <ProgressiveImage src={currentQuestion.src} placeholder={""}>
+                {(src: string) => (
+                  <img src={src} srcSet={srcSet} className="rounded-t-lg"></img>
+                )}
+              </ProgressiveImage>
             </div>
             Q{currentQuestion.id}. {currentQuestion.question}
           </div>

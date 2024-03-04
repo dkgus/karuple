@@ -8,13 +8,16 @@ const MyResult = (): JSX.Element => {
   const { id } = useParams();
   const navigate = useNavigate();
   const [record, setRecord] = useState<number[]>([]);
+  const [type, setType] = useState<string>("");
 
   useEffect(() => {
     const answer = JSON.parse(localStorage.getItem("record") || "[]");
+    const ownType = JSON.parse(localStorage.getItem("ownType") || "");
     if (!answer) {
       return;
     } else {
       setRecord(answer);
+      setType(ownType);
     }
   }, []);
 
@@ -61,7 +64,10 @@ const MyResult = (): JSX.Element => {
       </div>
       <div className="pt-6 flex justify-center">
         <img src={Home} className="w-7" onClick={() => navigate("/")} />
-        <button className={commonStyle} onClick={() => navigate(-1)}>
+        <button
+          className={commonStyle}
+          onClick={() => navigate(`/result/${type}`)}
+        >
           내 유형으로 돌아가기
         </button>
         <button className={commonStyle} onClick={() => navigate("/list")}>
