@@ -37,6 +37,8 @@ const Result = (props: Props): JSX.Element => {
     setColorLine(newBadgeColors);
   }, []);
 
+  console.log("matchType[id]." ,matchType[id])
+
   return (
     <div
       style={{
@@ -70,7 +72,7 @@ const Result = (props: Props): JSX.Element => {
         >
           {matchType[id].tag.map((item, idx) => (
             <div
-              className={`badge border-0 ml-1 rounded text-black`}
+              className={`badge border-0 ml-1 rounded text-black my-3`}
               key={item}
               style={{ backgroundColor: colorLine[idx] }}
             >
@@ -79,19 +81,7 @@ const Result = (props: Props): JSX.Element => {
           ))}
 
           <div className="text-sm">
-            다오 성격 스크롤 테스트 다오 성격 스크롤 테스트 다오 성격 스크롤
-            테스트 다오 성격 스크롤 테스트 다오 성격 스크롤 테스트 다오 성격
-            스크롤 테스트 다오 성격 스크롤 테스트 다오 성격 스크롤 테스트 다오
-            성격 스크롤 테스트 다오 성격 스크롤 테스트 다오 성격 스크롤 테스트
-            다오 성격 스크롤 테스트 다오 성격 스크롤 테스트 다오 성격 스크롤
-            테스트 다오 성격 스크롤 테스트 다오 성격 스크롤 테스트 다오 성격
-            스크롤 테스트 다오 성격 스크롤 테스트 다오 성격 스크롤 테스트다오
-            성격 스크롤 테스트 다오 성격 스크롤 테스트 다오 성격 스크롤 테스트
-            다오 성격 스크롤 테스트 다오 성격 스크롤 테스트 다오 성격 스크롤
-            테스트 다오 성격 스크롤 테스트 다오 성격 스크롤 테스트 다오 성격
-            스크롤 테스트 다오 성격 스크롤 테스트 다오 성격 스크롤 테스트 다오
-            성격 스크롤 테스트 다오 성격 스크롤 테스트 다오 성격 스크롤 테스트
-            다오 성격 스크롤 테스트 다오 성격 스크롤 테스트
+          {matchType[id].desc.split('\n').map((line, index) => <p  className="text-sm" key={index}>{line}</p>)}
           </div>
         </div>
       </div>

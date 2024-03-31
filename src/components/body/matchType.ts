@@ -19,52 +19,39 @@ import {
 
 const matchType: Record<
   string,
-  { image: string; name: string; tag: string[] }
+  { image: string; name: string; tag: string[] , mate:string, desc:string}
 > = {
-  ESFP: { name: "다오", image: Dao, tag: ["열혈", "밝음", "낙관"] },
-  INTP: { name: "디지니", image: Desyni, tag: ["부끄럼", "과감"] },
-  ISFP: { name: "배찌", image: Baejji, tag: ["단순", "낙관", "게으름"] },
-  ISTJ: { name: "에띠", image: Eddi, tag: ["똑똑함", "박학다식", "설계"] },
+  
+  ESFP: { name: "다오", image: Dao, tag: ["열혈", "밝음", "낙관"], mate:"INFP", desc:"사교적이고 활동적인 당신은 밝고 낙관적인 다오와 잘 어울려요!\n어떤 상황이든 잘 적응하고 사람들과 어울리는 것을  좋아해 누구와도 친구가 될 수 있어요. \n또한 표현력도 뛰어나고 공감 능력도 좋기 때문에 다른 사람들과 금방 친해질 수 있어요! \n\n당신의 카트 절친은 경쟁심 없고 평화주의적인 마리드와 잘 어울려요 :)"},
+  INTP: { name: "디지니", image: Desyni, tag: ["부끄럼", "과감"] , mate:"ESTP", desc:""},
+  ISFP: { name: "배찌", image: Baejji, tag: ["단순", "낙관", "게으름"],mate:"ENFP", desc:""},
+  ISTJ: { name: "에띠", image: Eddi, tag: ["똑똑함", "박학다식", "설계"],mate:"ESFJ", desc:"" },
   INFP: {
     name: "마리드",
     image: Marid,
     tag: ["도도", "낭만", "사랑"],
+    mate:"ESFP",
+    desc:""
   },
-  ENTJ: { name: "슈가", image: Sugar, tag: ["열정", "승리"] },
+  ENTJ: { name: "슈가", image: Sugar, tag: ["열정", "승리"], mate:"INFJ", desc:"" },
   ESTJ: {
     name: "미즈 로두마니",
     image: Miz,
     tag: ["리더", "뛰어난 기술", "고집"],
+    mate:"ISFJ",
+    desc:""
   },
-  ISTP: { name: "모스", image: Mos, tag: ["튜닝 마스터", "손기술", "성실"] },
-  ESTP: { name: "일영", image: Ilyeong, tag: ["대범", "거침없음", "명랑"] },
-  ENFP: { name: "첸첸", image: Chenchen, tag: ["활발", "친절", "활동적"] },
-  ESFJ: { name: "네오", image: Neo, tag: ["정의", "노력"] },
-  INFJ: { name: "나이아드", image: Naiad, tag: ["내성적", "희망"] },
-  ISFJ: { name: "르네", image: Reune, tag: ["내성적", "친구 좋아"] },
-  INTJ: { name: "헬리오스", image: Hellios, tag: ["신비주의"] },
-  ENTP: { name: "토르", image: Toreu, tag: ["용감", "자신감", "호쾌", "힘"] },
-  ENFJ: { name: "데이지", image: Daisy, tag: ["친절", "관리자", "열정"] },
+  ISTP: { name: "모스", image: Mos, tag: ["튜닝 마스터", "손기술", "성실"], mate:"ENTP", desc:"" },
+  ESTP: { name: "일영", image: Ilyeong, tag: ["대범", "거침없음", "명랑"], mate:"INTP", desc:"" },
+  ENFP: { name: "첸첸", image: Chenchen, tag: ["활발", "친절", "활동적"], mate:"ISFP" , desc:""},
+  ESFJ: { name: "네오", image: Neo, tag: ["정의", "노력"], mate:"ISTJ", desc:"" },
+  INFJ: { name: "나이아드", image: Naiad, tag: ["내성적", "희망"], mate:"ENTJ", desc:"" },
+  ISFJ: { name: "르네", image: Reune, tag: ["내성적", "친구 좋아"], mate:"ESTJ", desc:"" },
+  INTJ: { name: "헬리오스", image: Hellios, tag: ["신비주의"] , mate:"ENFJ", desc:""},
+  ENTP: { name: "토르", image: Toreu, tag: ["용감", "자신감", "호쾌", "힘"], mate:"ISTP", desc:"" },
+  ENFJ: { name: "데이지", image: Daisy, tag: ["친절", "관리자", "열정"], mate:"INTJ", desc:""},
 };
 
-const friendMatchData: Record<string, { type: string; bestFriend: string }> = {
-  다오: { type: "ESFP", bestFriend: "" },
-  디지니: { type: "INTP", bestFriend: "" },
-  배찌: { type: "ISFP", bestFriend: "" },
-  에띠: { type: "ISTJ", bestFriend: "" },
-  마리드: { type: "INFP", bestFriend: "" },
-  슈가: { type: "ENTJ", bestFriend: "" },
-  "미즈 로두마니": { type: "ESTJ", bestFriend: "" },
-  일영: { type: "ESTP", bestFriend: "" },
-  모스: { type: "ISTP", bestFriend: "" },
-  첸첸: { type: "ENFP", bestFriend: "" },
-  네오: { type: "ESFJ", bestFriend: "" },
-  나이아드: { type: "INFJ", bestFriend: "" },
-  르네: { type: "ISFJ", bestFriend: "" },
-  헬리오스: { type: "INTJ", bestFriend: "" },
-  토르: { type: "ENTP", bestFriend: "" },
-  데이지: { type: "ENFJ", bestFriend: "" },
-};
 
 const character: Record<string, string> = {
   열혈: "#FFBFC3",
@@ -107,4 +94,4 @@ const character: Record<string, string> = {
   관리자: "#FFCC66",
 };
 
-export { matchType, friendMatchData, character };
+export { matchType, character };

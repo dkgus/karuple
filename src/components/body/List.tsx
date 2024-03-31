@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { matchType, friendMatchData, character } from "./matchType";
+import { matchType, character } from "./matchType";
 import { useNavigate } from "react-router-dom";
 interface Props {
   setAccessType: (value: string) => void;
@@ -11,11 +11,11 @@ const List = (props: Props): JSX.Element => {
 
   const [filterData, setFilterData] =
     useState<
-      { key: string; value: { name: string; image: string; tag: string[] } }[]
+      { key: string; value: { name: string; image: string; tag: string[], mate:string } }[]
     >();
   const [originData, setOriginData] =
     useState<
-      { key: string; value: { name: string; image: string; tag: string[] } }[]
+      { key: string; value: { name: string; image: string; tag: string[], mate:string } }[]
     >();
 
   useEffect(() => {
@@ -59,7 +59,8 @@ const List = (props: Props): JSX.Element => {
                 const filtered = originData.filter(
                   (item) =>
                     item.key.includes(inputValue) ||
-                    item.value.name.includes(inputValue)
+                    item.value.name.includes(inputValue)||
+                    item.value.mate.includes(inputValue)
                 );
                 setFilterData(filtered);
               }
@@ -106,14 +107,14 @@ const List = (props: Props): JSX.Element => {
                 
                 >
                   <h2 className="text-md ">{item.value.name}</h2>
-                  <p className="text-sm">
+                  <p>
+                    <div className="text-base">
                     관련 MBTI:{" "}
-                    <span className="text-sm bg-red-300 p-1 rounded">
                       {item.key}
-                    </span>
-                    <br />
-                    절친 MBTI: YYYY
-                    <br />
+                    </div>
+                    <div className="mb-2 text-base">
+                    절친 MBTI: {item.value.mate}
+                    </div>
                     {item.value.tag.map((item) => {
                       return (
                         <span
@@ -126,7 +127,7 @@ const List = (props: Props): JSX.Element => {
                     })}
                   </p>
                   <div
-                    className="text-sm "
+                    className="text-sm pb-2"
                     onClick={() => {
                       navigate(`/result/${item.key}`);
                       setAccessType("A");
