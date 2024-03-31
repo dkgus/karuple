@@ -14,7 +14,7 @@ function App() {
 
   return (
     <div className="App">
-      <div className="h-dvh">
+      <div className="h-dvh text-black">
         <BrowserRouter>
           <div>
             <Header index={indexChecker} loading={loading} />

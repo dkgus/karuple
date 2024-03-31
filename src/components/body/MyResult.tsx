@@ -21,7 +21,6 @@ const MyResult = (): JSX.Element => {
     }
   }, []);
 
-  const commonStyle = "text-sm bg-base-100/50 p-2 ml-3 py-0 rounded";
 
   return (
     <div className="p-3">
@@ -65,12 +64,13 @@ const MyResult = (): JSX.Element => {
       <div className="pt-6 flex justify-center">
         <img src={Home} className="w-7" onClick={() => navigate("/")} />
         <button
-          className={commonStyle}
+          className={"my_btn ml-3 py-0"}
           onClick={() => navigate(`/result/${type}`)}
         >
           내 유형으로 돌아가기
         </button>
-        <button className={commonStyle} onClick={() => navigate("/list")}>
+        <button className={"my_btn ml-3 py-0"}
+          onClick={() => navigate("/list")}>
           전체 유형보기
         </button>
       </div>

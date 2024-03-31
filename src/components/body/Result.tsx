@@ -17,7 +17,6 @@ const Result = (props: Props): JSX.Element => {
 
   const [colorLine, setColorLine] = useState<string[]>([]);
 
-  const btnClass = "text-sm bg-base-100/50 p-2 rounded ";
 
   useEffect(() => {
     localStorage.setItem("type", id);
@@ -61,7 +60,7 @@ const Result = (props: Props): JSX.Element => {
       <div className="text_container flex-1">
         <div>{matchType[id].name}</div>
         <div
-          className="bg-base-100/50 mx-10 rounded custom_scroll text-base"
+          className="bg-white bg-opacity-50 mx-10 rounded custom_scroll text-base"
           style={{
             height: "10%",
             overflowY: "scroll",
@@ -71,7 +70,7 @@ const Result = (props: Props): JSX.Element => {
         >
           {matchType[id].tag.map((item, idx) => (
             <div
-              className={`badge border-0 ml-1 rounded`}
+              className={`badge border-0 ml-1 rounded text-black`}
               key={item}
               style={{ backgroundColor: colorLine[idx] }}
             >
@@ -100,7 +99,7 @@ const Result = (props: Props): JSX.Element => {
         <div className="btn_box absolute bottom-5 w-full">
           <div>
             <span
-              className={btnClass + "mr-3 pb-1"}
+              className="my_btn mr-3 pb-1"
               onClick={() => {
                 setIndexChecker(0);
                 navigate("/");
@@ -108,23 +107,23 @@ const Result = (props: Props): JSX.Element => {
             >
               테스트 다시하기
             </span>
-            <span className={btnClass + "pb-1"}>카카오톡 공유</span>
+            <span className="my_btn pb-1">카카오톡 공유</span>
           </div>
           <div>
             <span
-              className={btnClass + "mr-3"}
+              className="my_btn mr-3"
               onClick={() => navigate(`/my_result/${id}`)}
             >
               내가 선택한 답안보기
             </span>
-            <span className={btnClass} onClick={() => navigate("/list")}>
+            <span className="my_btn" onClick={() => navigate("/list")}>
               전체 유형보기
             </span>
           </div>
         </div>
       ) : (
         <div className="btn_box absolute bottom-5 w-full">
-          <span className={btnClass} onClick={() => navigate("/list")}>
+          <span className="my_btn" onClick={() => navigate("/list")}>
             전체 유형보기
           </span>
         </div>

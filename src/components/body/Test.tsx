@@ -135,7 +135,7 @@ const Test = (props: Props): JSX.Element => {
         </div>
       ) : (
         <>
-          <div className={style.class + " bg-base-100"} style={style}>
+          <div className={style.class + " bg-white"} style={style}>
             <div>
               <ProgressiveImage src={currentQuestion.src} placeholder={""}>
                 {(src: string) => (
@@ -156,7 +156,7 @@ const Test = (props: Props): JSX.Element => {
           {currentQuestion.answers.map((answer, index) => (
             <div
               key={index}
-              className={style.class + " bg-base-100/50 active:bg-base-100"}
+              className={style.class + " bg-white bg-opacity-50 active:bg-white"}
               style={style}
               onClick={() => {
                 setRecord([...record, index]);

@@ -17,7 +17,6 @@ const List = (props: Props): JSX.Element => {
     useState<
       { key: string; value: { name: string; image: string; tag: string[] } }[]
     >();
-  const btnClass = "text-sm bg-base-100/50 p-2 rounded ";
 
   useEffect(() => {
     const entriesWithKeys =
@@ -44,7 +43,7 @@ const List = (props: Props): JSX.Element => {
     <div>
       <div>전체 유형</div>
       <div className="search_zone px-4 py-1">
-        <label className="input input-bordered flex items-center gap-2 h-7">
+        <label className="input input-bordered flex items-center gap-2 h-7 bg-white">
           <input
             type="text"
             className="grow"
@@ -89,8 +88,10 @@ const List = (props: Props): JSX.Element => {
           filterData &&
           filterData.map((item) => (
             <>
-              <div className="card card-side bg-base-100 m-3 flex">
-                <figure style={{ maxWidth: "50%" }}>
+              <div className="card card-side m-3 flex "
+              style={{background:"white"}}
+              >
+                <figure style={{ maxWidth: "50%"}}>
                   <img
                     src={item.value.image}
                     style={{
@@ -101,7 +102,9 @@ const List = (props: Props): JSX.Element => {
                     alt="img"
                   />
                 </figure>
-                <div className="card-body p-0 ">
+                <div className="card-body p-0 "
+                
+                >
                   <h2 className="text-md ">{item.value.name}</h2>
                   <p className="text-sm">
                     관련 MBTI:{" "}
@@ -137,10 +140,10 @@ const List = (props: Props): JSX.Element => {
           ))}
       </div>
       <div className="btn_box w-full pt-3">
-        <span className={btnClass} onClick={() => navigate(`/result/${type}`)}>
+        <span className="my_btn" onClick={() => navigate(`/result/${type}`)}>
           내 유형으로 돌아가기
         </span>
-        <span className={btnClass + "ml-1"} onClick={() => navigate("/")}>
+        <span className= "my_btn ml-1" onClick={() => navigate("/")}>
           테스트 다시하기
         </span>
       </div>

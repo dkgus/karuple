@@ -28,6 +28,13 @@ body {
   user-select: none;
 }
 
+@layer components{
+  .my_btn {
+    @apply bg-white text-sm p-2 rounded text-black
+  }
+}
+
+
 @media (min-width: 768px) {
   /* mobile 이상 디바이스 */
 
