@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
+import KakaoBtn from "./kakaoBtn/KakaoBtn";
 import { matchType } from "./matchType";
 import { colorGenerator } from "./randomColor";
 
@@ -16,7 +17,6 @@ const Result = (props: Props): JSX.Element => {
   const navigate = useNavigate();
 
   const [colorLine, setColorLine] = useState<string[]>([]);
-
 
   useEffect(() => {
     localStorage.setItem("type", id);
@@ -36,8 +36,6 @@ const Result = (props: Props): JSX.Element => {
 
     setColorLine(newBadgeColors);
   }, []);
-
-  console.log("matchType[id]." ,matchType[id])
 
   return (
     <div
@@ -81,7 +79,11 @@ const Result = (props: Props): JSX.Element => {
           ))}
 
           <div className="text-sm">
-          {matchType[id].desc.split('\n').map((line, index) => <p  className="text-sm" key={index}>{line}</p>)}
+            {matchType[id].desc.split("\n").map((line, index) => (
+              <p className="text-sm" key={index}>
+                {line}
+              </p>
+            ))}
           </div>
         </div>
       </div>
@@ -97,7 +99,7 @@ const Result = (props: Props): JSX.Element => {
             >
               테스트 다시하기
             </span>
-            <span className="my_btn pb-1">카카오톡 공유</span>
+            <KakaoBtn />
           </div>
           <div>
             <span

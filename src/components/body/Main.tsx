@@ -27,6 +27,7 @@ const Main = (): JSX.Element => {
         }}
       />
       <div className="mb-auto z-50 text-4xl">카러플 Mbti</div>
+
       <button
         style={{ height: "30px" }}
         className="btn btn-sm btn-warning absolute bottom-0 mb-10 text-2xl font-light"

@@ -1,16 +1,23 @@
 import "./App.css";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Main from "./components/body/Main.tsx";
-import Test from "./components/body/Test.tsx";
-import Result from "./components/body/Result.tsx";
-import List from "./components/body/List.tsx";
-import MyResult from "./components/body/MyResult.tsx";
-import Header from "./components/header/Header.tsx";
-import { useState } from "react";
+import React, { useState } from "react";
+
+import Main from "./components/body/Main";
+import Test from "./components/body/Test";
+import Result from "./components/body/Result";
+import List from "./components/body/List";
+import MyResult from "./components/body/MyResult";
+import Header from "./components/header/Header";
+
+declare global {
+  interface Window {
+    Kakao: any;
+  }
+}
 function App() {
-  const [indexChecker, setIndexChecker] = useState(0);
-  const [loading, setLoading] = useState(false);
-  const [accessType, setAccessType] = useState("");
+  const [indexChecker, setIndexChecker] = useState<number>(0);
+  const [loading, setLoading] = useState<boolean>(false);
+  const [accessType, setAccessType] = useState<string>("");
 
   return (
     <div className="App">
