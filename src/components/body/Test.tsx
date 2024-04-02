@@ -145,7 +145,7 @@ const Test = (props: Props): JSX.Element => {
                       alt="img"
                       src={src}
                       srcSet={srcSet}
-                      className="rounded-t-lg"
+                      className="rounded-t-lg max-h-[270px] min-h-[270px]"
                     ></img>
                   </picture>
                 )}
@@ -157,7 +157,7 @@ const Test = (props: Props): JSX.Element => {
             <div
               key={index}
               className={
-                style.class + " bg-white bg-opacity-50 active:bg-white"
+                style.class + " bg-white bg-opacity-50 active:bg-white p-3"
               }
               style={style}
               onClick={() => {

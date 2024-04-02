@@ -3,20 +3,25 @@ import { matchType, character } from "./matchType";
 import { useNavigate } from "react-router-dom";
 interface Props {
   setAccessType: (value: string) => void;
+  setIndexChecker: (value: number) => void;
 }
 const List = (props: Props): JSX.Element => {
   const navigate = useNavigate();
-  const { setAccessType } = props;
+  const { setAccessType, setIndexChecker } = props;
   const [type, setType] = useState<string>("");
 
-  const [filterData, setFilterData] =
-    useState<
-      { key: string; value: { name: string; image: string; tag: string[], mate:string } }[]
-    >();
-  const [originData, setOriginData] =
-    useState<
-      { key: string; value: { name: string; image: string; tag: string[], mate:string } }[]
-    >();
+  const [filterData, setFilterData] = useState<
+    {
+      key: string;
+      value: { name: string; image: string; tag: string[]; mate: string };
+    }[]
+  >();
+  const [originData, setOriginData] = useState<
+    {
+      key: string;
+      value: { name: string; image: string; tag: string[]; mate: string };
+    }[]
+  >();
 
   useEffect(() => {
     const entriesWithKeys =
@@ -59,7 +64,7 @@ const List = (props: Props): JSX.Element => {
                 const filtered = originData.filter(
                   (item) =>
                     item.key.includes(inputValue) ||
-                    item.value.name.includes(inputValue)||
+                    item.value.name.includes(inputValue) ||
                     item.value.mate.includes(inputValue)
                 );
                 setFilterData(filtered);
@@ -89,10 +94,11 @@ const List = (props: Props): JSX.Element => {
           filterData &&
           filterData.map((item) => (
             <>
-              <div className="card card-side m-3 flex "
-              style={{background:"white"}}
+              <div
+                className="card card-side m-3 flex "
+                style={{ background: "white" }}
               >
-                <figure style={{ maxWidth: "50%"}}>
+                <figure style={{ maxWidth: "50%" }}>
                   <img
                     src={item.value.image}
                     style={{
@@ -103,17 +109,12 @@ const List = (props: Props): JSX.Element => {
                     alt="img"
                   />
                 </figure>
-                <div className="card-body p-0 "
-                
-                >
+                <div className="card-body p-0 ">
                   <h2 className="text-md ">{item.value.name}</h2>
                   <p>
-                    <div className="text-base">
-                    관련 MBTI:{" "}
-                      {item.key}
-                    </div>
+                    <div className="text-base">관련 MBTI: {item.key}</div>
                     <div className="mb-2 text-base">
-                    절친 MBTI: {item.value.mate}
+                      절친 MBTI: {item.value.mate}
                     </div>
                     {item.value.tag.map((item) => {
                       return (
@@ -144,7 +145,13 @@ const List = (props: Props): JSX.Element => {
         <span className="my_btn" onClick={() => navigate(`/result/${type}`)}>
           내 유형으로 돌아가기
         </span>
-        <span className= "my_btn ml-1" onClick={() => navigate("/")}>
+        <span
+          className="my_btn ml-1"
+          onClick={() => {
+            navigate("/");
+            setIndexChecker(0);
+          }}
+        >
           테스트 다시하기
         </span>
       </div>

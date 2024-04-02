@@ -49,7 +49,12 @@ function App() {
               ></Route>
               <Route
                 path="/list"
-                element={<List setAccessType={setAccessType} />}
+                element={
+                  <List
+                    setAccessType={setAccessType}
+                    setIndexChecker={setIndexChecker}
+                  />
+                }
               ></Route>
               <Route path="/my_result/:id" element={<MyResult />}></Route>
             </Routes>

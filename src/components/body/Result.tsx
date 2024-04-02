@@ -99,7 +99,7 @@ const Result = (props: Props): JSX.Element => {
             >
               테스트 다시하기
             </span>
-            <KakaoBtn />
+            <KakaoBtn id={id} />
           </div>
           <div>
             <span
@@ -115,8 +115,17 @@ const Result = (props: Props): JSX.Element => {
         </div>
       ) : (
         <div className="btn_box absolute bottom-5 w-full">
-          <span className="my_btn" onClick={() => navigate("/list")}>
+          <span className="my_btn mr-3 pb-1" onClick={() => navigate("/list")}>
             전체 유형보기
+          </span>
+          <span
+            className="my_btn mr-3 pb-1"
+            onClick={() => {
+              setIndexChecker(0);
+              navigate("/");
+            }}
+          >
+            테스트 다시하기
           </span>
         </div>
       )}

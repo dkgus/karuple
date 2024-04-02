@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import data from "../asset/data";
-import Home from "./img/home.png";
 import { matchType } from "./matchType";
 
 const MyResult = (): JSX.Element => {
@@ -20,7 +19,6 @@ const MyResult = (): JSX.Element => {
       setType(ownType);
     }
   }, []);
-
 
   return (
     <div className="p-3">
@@ -62,15 +60,16 @@ const MyResult = (): JSX.Element => {
         ))}
       </div>
       <div className="pt-6 flex justify-center">
-        <img src={Home} className="w-7" onClick={() => navigate("/")} />
         <button
-          className={"my_btn ml-3 py-0"}
+          className={"my_btn py-1"}
           onClick={() => navigate(`/result/${type}`)}
         >
           내 유형으로 돌아가기
         </button>
-        <button className={"my_btn ml-3 py-0"}
-          onClick={() => navigate("/list")}>
+        <button
+          className={"my_btn ml-3 py-1"}
+          onClick={() => navigate("/list")}
+        >
           전체 유형보기
         </button>
       </div>

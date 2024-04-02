@@ -1,9 +1,12 @@
 import React, { useEffect } from "react";
 import logo from "../img/yellow_logo.png";
-import { China } from "../img";
 
-const KakaoBtn = (): JSX.Element => {
+const KakaoBtn = (props: { id: string }): JSX.Element => {
+  const { id } = props;
+
   useEffect(() => {
+    if (!id) return;
+
     const script = document.createElement("script");
     script.src = "https://developers.kakao.com/sdk/js/kakao.js";
     script.async = true;
@@ -27,19 +30,26 @@ const KakaoBtn = (): JSX.Element => {
                 "https://mud-kage.kakao.com/dn/Q2iNx/btqgeRgV54P/VLdBs9cvyn8BJXB3o7N8UK/kakaolink40_original.png",
 
               link: {
-                mobileWebUrl: "https://karuplus-mbti.netlify.app",
-                webUrl: "https://karuplus-mbti.netlify.app",
+                mobileWebUrl: `https://karuplus-mbti.netlify.app/result/${id}`,
+                webUrl: `https://karuplus-mbti.netlify.app/result/${id}`,
               },
             },
 
             buttons: [
               {
-                title: "웹으로 이동",
+                title: "친구의 유형보기",
                 link: {
-                  mobileWebUrl: "https://karuplus-mbti.netlify.app",
-                  webUrl: "https://karuplus-mbti.netlify.app",
+                  mobileWebUrl: `https://karuplus-mbti.netlify.app/result/${id}`,
+                  webUrl: `https://karuplus-mbti.netlify.app/result/${id}`,
                 },
               },
+              // {
+              //   title: "테스트 해보기",
+              //   link: {
+              //     mobileWebUrl: "https://karuplus-mbti.netlify.app",
+              //     webUrl: "https://karuplus-mbti.netlify.app",
+              //   },
+              // },
             ],
           });
         };
