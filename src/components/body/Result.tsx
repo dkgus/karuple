@@ -78,7 +78,7 @@ const Result = (props: Props): JSX.Element => {
             </div>
           ))}
 
-          <div className="text-sm">
+          <div className="text-sm px-3">
             {matchType[id].desc.split("\n").map((line, index) => (
               <p className="text-sm" key={index}>
                 {line}

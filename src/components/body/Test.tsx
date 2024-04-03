@@ -151,7 +151,9 @@ const Test = (props: Props): JSX.Element => {
                 )}
               </ProgressiveImage>
             </div>
-            Q{currentQuestion.id}. {currentQuestion.question}
+            <div className="text-center text-[20px] px-2">
+              Q{currentQuestion.id}. {currentQuestion.question}
+            </div>
           </div>
           {currentQuestion.answers.map((answer, index) => (
             <div
