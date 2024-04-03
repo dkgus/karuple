@@ -3,6 +3,24 @@ import logo from "../img/yellow_logo.png";
 
 const KakaoBtn = (props: { id: string }): JSX.Element => {
   const { id } = props;
+  const imgType = {
+    ESFP: "dao.jpg",
+    INTP: "desyni.jpg",
+    ISFP: "baejji.jpg",
+    ISTJ: "eddi2.jpg",
+    INFP: "marid.jpg",
+    ENTJ: "sugar.jpg",
+    ESTJ: "miz.jpg",
+    ISTP: "mos.jpg",
+    ESTP: "ilyeong.jpg",
+    ENFP: "chenchen.jpg",
+    ESFJ: "neo.jpg",
+    INFJ: "naiad.jpg",
+    ISFJ: "reune.jpg",
+    INTJ: "hellios.jpg",
+    ENTP: "toreu.jpg",
+    ENFJ: "daisy.jpg",
+  };
 
   useEffect(() => {
     if (!id) return;
@@ -26,8 +44,7 @@ const KakaoBtn = (props: { id: string }): JSX.Element => {
             content: {
               title: "카러플 MBTI",
               description: "나만의 카러플 캐릭터 찾기",
-              imageUrl:
-                "https://mud-kage.kakao.com/dn/Q2iNx/btqgeRgV54P/VLdBs9cvyn8BJXB3o7N8UK/kakaolink40_original.png",
+              imageUrl: `https://github.com/dkgus/karuple/blob/master/src/components/body/img/${imgType[id]}?raw=true`,
 
               link: {
                 mobileWebUrl: `https://karuplus-mbti.netlify.app/result/${id}`,

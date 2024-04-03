@@ -145,7 +145,7 @@ const Test = (props: Props): JSX.Element => {
                       alt="img"
                       src={src}
                       srcSet={srcSet}
-                      className="rounded-t-lg max-h-[270px] min-h-[270px]"
+                      className="rounded-t-lg"
                     ></img>
                   </picture>
                 )}
