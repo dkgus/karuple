@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import data from "../asset/data";
 import { useNavigate } from "react-router-dom";
 import ProgressiveImage from "react-progressive-graceful-image";
+
 interface Answer {
   text: string;
   point: number;
@@ -114,10 +115,8 @@ const Test = (props: Props): JSX.Element => {
   };
 
   const currentQuestion: Question = data[idx];
-  {
-    console.log("currentQuestion.src", currentQuestion.src);
-  }
-  const srcSet = `${currentQuestion.src} 1000w, ${currentQuestion.src} 2000w`;
+
+  const srcSet = `${currentQuestion.src} 400w, ${currentQuestion.src} 600w`;
 
   return (
     <div>
@@ -140,12 +139,14 @@ const Test = (props: Props): JSX.Element => {
               <ProgressiveImage src={currentQuestion.src} placeholder={""}>
                 {(src: string) => (
                   <picture>
-                    <source srcSet={srcSet} media="(max-width: 768px)" />
+                    <source srcSet={srcSet} media="(max-width: 600px)" />
                     <img
                       alt="img"
                       src={src}
                       srcSet={srcSet}
                       className="rounded-t-lg"
+                      loading="lazy"
+                      fetchPriority="high"
                     ></img>
                   </picture>
                 )}
