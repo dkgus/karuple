@@ -4,22 +4,22 @@ import logo from "../img/yellow_logo.png";
 const KakaoBtn = (props: { id: string }): JSX.Element => {
   const { id } = props;
   const imgType = {
-    ESFP: "dao.jpg",
-    INTP: "desyni.jpg",
-    ISFP: "baejji.jpg",
-    ISTJ: "eddi2.jpg",
-    INFP: "marid.jpg",
-    ENTJ: "sugar.jpg",
-    ESTJ: "miz.jpg",
-    ISTP: "mos.jpg",
-    ESTP: "ilyeong.jpg",
-    ENFP: "chenchen.jpg",
-    ESFJ: "neo.jpg",
-    INFJ: "naiad.jpg",
-    ISFJ: "reune.jpg",
-    INTJ: "hellios.jpg",
-    ENTP: "toreu.jpg",
-    ENFJ: "daisy.jpg",
+    ESFP: "dao.webp",
+    INTP: "desyni.webp",
+    ISFP: "baejji.webp",
+    ISTJ: "eddi2.webp",
+    INFP: "marid.webp",
+    ENTJ: "sugar.webp",
+    ESTJ: "miz.webp",
+    ISTP: "mos.webp",
+    ESTP: "ilyeong.webp",
+    ENFP: "chenchen.webp",
+    ESFJ: "neo.webp",
+    INFJ: "naiad.webp",
+    ISFJ: "reune.webp",
+    INTJ: "hellios.webp",
+    ENTP: "toreu.webp",
+    ENFJ: "daisy.webp",
   };
 
   useEffect(() => {
@@ -44,7 +44,8 @@ const KakaoBtn = (props: { id: string }): JSX.Element => {
             content: {
               title: "카러플 MBTI",
               description: "나만의 카러플 캐릭터 찾기",
-              imageUrl: "https://i.ibb.co/q0VsfBz/village.jpg",
+              imageUrl: `https://res.cloudinary.com/dfzexvi1u/image/upload/f_auto,q_auto/v1740885185/${imgType[id]}`,
+
               link: {
                 mobileWebUrl: `https://karuplus-mbti.netlify.app/result/${id}`,
                 webUrl: `https://karuplus-mbti.netlify.app/result/${id}`,
