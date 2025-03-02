@@ -1,4 +1,5 @@
-import Dao from "./img/dao.jpg";
+//import Dao from "./img/dao.jpg";
+import Dao from "https://res.cloudinary.com/dfzexvi1u/image/upload/v1740885184/dao_l0sxsl.webp";
 import Baejji from "./img/baejji.jpg";
 import Desyni from "./img/desyni.jpg";
 import Eddi from "./img/eddi2.jpg";
@@ -13,7 +14,8 @@ import Naiad from "./img/naiad.jpg";
 import Reune from "./img/reune.jpg";
 import Hellios from "./img/hellios.jpg";
 import Toreu from "./img/toreu.jpg";
-import Daisy from "./img/daisy.jpg";
+//import Daisy from "./img/daisy.jpg";
+import Daisy from "https://res.cloudinary.com/dfzexvi1u/image/upload/v1740885184/daisy_nvufgn.webp";
 
 import China from "./qImg/china.webp";
 import FactoryOut from "./qImg/factory_outside.webp";

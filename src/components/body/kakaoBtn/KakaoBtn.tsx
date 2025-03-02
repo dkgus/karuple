@@ -44,8 +44,7 @@ const KakaoBtn = (props: { id: string }): JSX.Element => {
             content: {
               title: "카러플 MBTI",
               description: "나만의 카러플 캐릭터 찾기",
-              imageUrl: `https://github.com/dkgus/karuple/blob/master/src/components/body/img/${imgType[id]}?raw=true`,
-
+              imageUrl: "https://i.ibb.co/q0VsfBz/village.jpg",
               link: {
                 mobileWebUrl: `https://karuplus-mbti.netlify.app/result/${id}`,
                 webUrl: `https://karuplus-mbti.netlify.app/result/${id}`,
