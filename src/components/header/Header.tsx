@@ -38,13 +38,17 @@ const Header = (props: Props): JSX.Element => {
     setCurrentIndex(index);
   }, [index]);
 
+  useEffect(() => {
+    setCurrentIndex(0);
+  }, [location.pathname]);
+
   return location.pathname.includes("/test") ? (
     loading ? null : (
       <header>
         <progress
           className="progress w-full mx-auto"
           style={{ maxWidth: "80%" }}
-          value={index}
+          value={currentIndex}
           max={maxIndex}
         ></progress>
         <img
