@@ -1,6 +1,5 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
-import img from "./img/main_img.jpg";
 
 const Main = (): JSX.Element => {
   const navigate = useNavigate();
@@ -15,7 +14,9 @@ const Main = (): JSX.Element => {
       }}
     >
       <img
-        src={img}
+        src={
+          "https://res.cloudinary.com/dszuqn0vi/image/upload/v1741247205/main_crop_mcmqzm.jpg"
+        }
         alt="배경 이미지"
         style={{
           position: "absolute",
@@ -26,7 +27,6 @@ const Main = (): JSX.Element => {
           objectFit: "cover",
         }}
       />
-      <div className="mb-auto z-50 text-4xl">카러플 Mbti</div>
 
       <button
         style={{ height: "30px" }}

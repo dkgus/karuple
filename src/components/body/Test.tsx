@@ -40,7 +40,6 @@ const Test = (props: Props): JSX.Element => {
 
   const [idx, setIndex] = useState<number>(0);
   const [answerSheet, setAnswerSheet] = useState<AnswerSheet[]>([]);
-  const [result, setResult] = useState<string>("");
   const [record, setRecord] = useState<number[]>([]);
 
   useEffect(() => {
@@ -75,9 +74,9 @@ const Test = (props: Props): JSX.Element => {
     let answer: string = "";
 
     for (let i = 0; i < answerSheet.length; i++) {
-      const type = ["E-I", "N-S", "F-T", "J-P"];
+      const type = ["E-I", "N-S", "F-T", "P-J"];
       const spliceWord = type.map((i) => i.split("-"));
-      if (answerSheet[i].score > 0) {
+      if (answerSheet[i].score < 0) {
         arr.push(spliceWord[i][0]);
       } else {
         arr.push(spliceWord[i][1]);
@@ -85,7 +84,6 @@ const Test = (props: Props): JSX.Element => {
       continue;
     }
     answer = arr.join("");
-    setResult(answer);
     setAccessType("P");
     return answer;
   };
