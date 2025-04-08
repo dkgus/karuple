@@ -139,12 +139,11 @@ const Test = (props: Props): JSX.Element => {
                   <picture>
                     <source srcSet={srcSet} media="(max-width: 600px)" />
                     <img
-                      alt="img"
+                      alt="q_img"
                       src={src}
                       srcSet={srcSet}
                       className="rounded-t-lg"
                       loading="lazy"
-                      fetchPriority="high"
                     ></img>
                   </picture>
                 )}

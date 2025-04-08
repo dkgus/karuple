@@ -17,7 +17,6 @@ const Main = (): JSX.Element => {
         src="https://res.cloudinary.com/dszuqn0vi/image/upload/w_1920,f_auto,q_auto/v1741247205/main_crop_mcmqzm.jpg"
         alt="배경 이미지"
         decoding="async"
-        fetchPriority="high"
         style={{
           position: "absolute",
           top: 0,

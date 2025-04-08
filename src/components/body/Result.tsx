@@ -53,8 +53,8 @@ const Result = (props: Props): JSX.Element => {
       >
         <img
           src={matchType[id].image}
-          className="mask mask-circle mx-auto h-full "
-          alt="Dao"
+          className="mask mask-circle mx-auto h-full"
+          alt="type_img"
         />
       </div>
       <div className="text_container flex-1">

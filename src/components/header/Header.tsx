@@ -56,6 +56,7 @@ const Header = (props: Props): JSX.Element => {
           src={Cart}
           width={50}
           ref={imageRef}
+          alt="car_img"
         />
       </header>
     )

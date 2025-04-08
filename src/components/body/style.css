@@ -8,8 +8,3 @@
   border-radius: 5px;
   scrollbar-width: 5px !important;
 }
-
-.back_img {
-  background-image: "https://res.cloudinary.com/dszuqn0vi/image/upload/f_auto,q_auto/v1741247205/main_crop_mcmqzm.jpg";
-  z-index: 1;
-}
