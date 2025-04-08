@@ -14,10 +14,10 @@ const Main = (): JSX.Element => {
       }}
     >
       <img
-        src={
-          "https://res.cloudinary.com/dszuqn0vi/image/upload/v1741247205/main_crop_mcmqzm.jpg"
-        }
+        src="https://res.cloudinary.com/dszuqn0vi/image/upload/w_1920,f_auto,q_auto/v1741247205/main_crop_mcmqzm.jpg"
         alt="배경 이미지"
+        decoding="async"
+        fetchPriority="high"
         style={{
           position: "absolute",
           top: 0,
@@ -29,14 +29,23 @@ const Main = (): JSX.Element => {
       />
 
       <button
-        style={{ height: "30px" }}
-        className="btn btn-sm btn-warning absolute bottom-0 mb-10 text-2xl font-light"
-        onClick={() => {
-          navigate("/test");
+        onClick={() => navigate("/test")}
+        style={{
+          zIndex: 1,
+          transform: "translateY(200px)",
+          willChange: "transform",
+          width: "200px",
+          height: "17vh",
+          backgroundImage:
+            "url('https://res.cloudinary.com/dfzexvi1u/image/upload/w_200,f_auto,q_auto,dpr_auto/v1744015945/btnImg_nr9hnj.png')",
+          backgroundSize: "contain",
+          backgroundRepeat: "no-repeat",
+          backgroundPosition: "center",
+          border: "none",
+          cursor: "pointer",
         }}
-      >
-        START
-      </button>
+        aria-label="시작 버튼"
+      />
     </div>
   );
 };
