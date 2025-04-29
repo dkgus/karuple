@@ -14,7 +14,7 @@ const Main = (): JSX.Element => {
       }}
     >
       <img
-        src="https://res.cloudinary.com/dszuqn0vi/image/upload/w_1920,f_auto,q_auto/v1741247205/main_crop_mcmqzm.jpg"
+        src="https://res.cloudinary.com/dszuqn0vi/image/upload/f_auto,q_auto,dpr_auto/v1745817285/main_crop_mcmqzm_defshe.webp"
         alt="배경 이미지"
         decoding="async"
         style={{
